@@ -24,7 +24,7 @@ workbox.clientsClaim();
 self.__precacheManifest = [
   {
     "url": "css/style.css",
-    "revision": "934bd2f4737c0e28cb90019ff24fda0c"
+    "revision": "6cb506f95671772e9d8a868930c1f78d"
   },
   {
     "url": "js/av-min.js",
