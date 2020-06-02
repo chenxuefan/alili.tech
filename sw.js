@@ -40,7 +40,7 @@ self.__precacheManifest = [
   },
   {
     "url": "js/main.js",
-    "revision": "4ffdc40f2bf8f9f5fbbee8688c570ae1"
+    "revision": "b444f9934be4612f5e97afbfe41f27a9"
   },
   {
     "url": "lib/font-awesome/css/font-awesome.css",
