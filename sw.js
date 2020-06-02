@@ -84,7 +84,7 @@ self.__precacheManifest = [
   },
   {
     "url": "lib/typed.js",
-    "revision": "5d53ae31eda336c919b79ad3590e8589"
+    "revision": "f6356fe249b7f46366f4202688a5488b"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
