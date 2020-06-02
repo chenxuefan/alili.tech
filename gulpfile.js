@@ -28,7 +28,11 @@ gulp.task('minify', () => {
        }))
       .pipe(gulp.dest('public'));
   });
-gulp.task('build', shell.task('hugo --buildFuture'));
+// gulp.task('build',function(done){
+//     shell.task('hugo --buildFuture');
+//     done()
+// });
+
 gulp.task('baiduSeo', () => {
     // return gulp.pipe()
     fs.readFile(__dirname + '/public/sitemap.xml', function(err, data) {
@@ -114,7 +118,7 @@ gulp.task('generate-service-worker', () => {
 
 
 gulp.task("default",[
-    'build',
+    // 'build',
     'baiduSeo',
     'getTodayData',
     "generate-service-worker",

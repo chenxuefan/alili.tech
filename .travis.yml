@@ -8,7 +8,7 @@ install:
     - npm install
     
 script:
-    - gulp
+    - npm run build
     - echo 'Build done!'
 after_success:
     - git config --global user.email "incomparable9527@foxmail.com"
