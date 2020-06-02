@@ -1,8 +1,11 @@
 const gulp = require("gulp");
 const htmlmin = require('gulp-htmlmin');
 const fs = require('fs');
+const fse = require('fs-extra')
 const xml2js = require('xml2js')
 const workbox = require('workbox-build');
+const shell = require('gulp-shell')
+const axios = require('axios');
 const parser = new xml2js.Parser();
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
@@ -25,7 +28,7 @@ gulp.task('minify', () => {
        }))
       .pipe(gulp.dest('public'));
   });
-
+gulp.task('build', shell.task('hugo --buildFuture'));
 gulp.task('baiduSeo', () => {
     // return gulp.pipe()
     fs.readFile(__dirname + '/public/sitemap.xml', function(err, data) {
@@ -39,58 +42,16 @@ gulp.task('baiduSeo', () => {
 
 
 
-function urlSubmit(urls) {
-    // 最新内容提交
-    var new_target = "http://data.zz.baidu.com/urls?appid="+xz_appid+"&token="+xz_token+"&type=realtime"
-    
-    // 历史提交
-    var history_target = "http://data.zz.baidu.com/urls?appid="+xz_appid+"&token="+xz_token+"&type=batch"
-
-    // 百度站长
-    var baidu_target = "http://data.zz.baidu.com/urls?site=https://alili.tech&token="+baidu_token
-
-    // MIP
-    var MIP_target = "http://data.zz.baidu.com/urls?site=https://alili.tech&token=QsL3LjB4I2GLWGbj&type=mip"
-
-    // AMP
-    var AMP_target = "http://data.zz.baidu.com/urls?site=https://alili.tech&token=QsL3LjB4I2GLWGbj&type=amp"
-
-    // 最新url,看熊掌号情况而定
-    urls = urls.map(item=>item.loc[0])
-    let allurlsArr = urls.slice(0,1999)
-    allUrls = allurlsArr.join('\n')
-
-    var new_urls_Arr = urls.slice(0,urlCount)
-    new_urls= new_urls_Arr.join('\n');
-
-    console.info('百度站长开始提交',new_urls)
-    sendData(baidu_target,new_urls,'百度站长提交成功')
-
-    console.info('熊掌号开始提交')
-    sendData(new_target,new_urls,'熊掌号提交完成')
-
-    // 提交历史url 每天最多500w条
-    console.info("历史数据开始提交")
-    sendData(history_target,allUrls,"历史数据提交完成")
-
-    console.info("MIP 开始提交")
-    sendData(MIP_target,allUrls,"MIP提交成功")
-
-    console.info("AMP 开始提交")
-    sendData(AMP_target,allUrls,"AMP提交成功")
-
-    function sendData(target,urls,message){
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', target, false);
-        xhr.setRequestHeader('Content-type', 'text/plain');
-        xhr.onload = function () {
-            console.log(this.responseText);
-            if(message){console.info(message)}
-        };
-        xhr.send(urls);
-    }
-
-};
+gulp.task('getTodayData', () => {
+    axios.get('https://rest.shanbay.com/api/v2/quote/quotes/today/')
+    .then(function (response) {
+        fse.writeJsonSync('./static/data/today.json',response.data)
+        console.log('今日骚话:',response.data.data.translation);
+    })
+    .catch(function (error) {
+      console.log('骚话获取失败',error);
+    });
+  });
 
 
 gulp.task('generate-service-worker', () => {
@@ -153,7 +114,64 @@ gulp.task('generate-service-worker', () => {
 
 
 gulp.task("default",[
+    'build',
     'baiduSeo',
+    'getTodayData',
     "generate-service-worker",
     'minify',
 ])
+
+
+
+function urlSubmit(urls) {
+    // 最新内容提交
+    var new_target = "http://data.zz.baidu.com/urls?appid="+xz_appid+"&token="+xz_token+"&type=realtime"
+    
+    // 历史提交
+    var history_target = "http://data.zz.baidu.com/urls?appid="+xz_appid+"&token="+xz_token+"&type=batch"
+
+    // 百度站长
+    var baidu_target = "http://data.zz.baidu.com/urls?site=https://alili.tech&token="+baidu_token
+
+    // MIP
+    var MIP_target = "http://data.zz.baidu.com/urls?site=https://alili.tech&token=QsL3LjB4I2GLWGbj&type=mip"
+
+    // AMP
+    var AMP_target = "http://data.zz.baidu.com/urls?site=https://alili.tech&token=QsL3LjB4I2GLWGbj&type=amp"
+
+    // 最新url,看熊掌号情况而定
+    urls = urls.map(item=>item.loc[0])
+    let allurlsArr = urls.slice(0,1999)
+    allUrls = allurlsArr.join('\n')
+
+    var new_urls_Arr = urls.slice(0,urlCount)
+    new_urls= new_urls_Arr.join('\n');
+
+    console.info('百度站长开始提交',new_urls)
+    sendData(baidu_target,new_urls,'百度站长提交成功')
+
+    console.info('熊掌号开始提交')
+    sendData(new_target,new_urls,'熊掌号提交完成')
+
+    // 提交历史url 每天最多500w条
+    console.info("历史数据开始提交")
+    sendData(history_target,allUrls,"历史数据提交完成")
+
+    console.info("MIP 开始提交")
+    sendData(MIP_target,allUrls,"MIP提交成功")
+
+    console.info("AMP 开始提交")
+    sendData(AMP_target,allUrls,"AMP提交成功")
+
+    function sendData(target,urls,message){
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', target, false);
+        xhr.setRequestHeader('Content-type', 'text/plain');
+        xhr.onload = function () {
+            console.log(this.responseText);
+            if(message){console.info(message)}
+        };
+        xhr.send(urls);
+    }
+
+};
