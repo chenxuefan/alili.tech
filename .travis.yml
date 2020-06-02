@@ -21,6 +21,7 @@ after_success:
     - cd container
     - git add .
     - git commit -m 'Travis upate blog'
+    - git remote -v
     - git push -u origin gh-pages -f
     - git push -u coding gh-pages:master -f
     - curl -d "" ${DEPLOY_API}
