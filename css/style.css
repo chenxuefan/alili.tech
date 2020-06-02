@@ -54,7 +54,9 @@ a {-webkit-tap-highlight-color:transparent;}
 .content .v[data-class=v] .vcards .vcard .vhead .vnick:hover,.content .v[data-class=v] a:hover{
     color: #1abc9c;
 }
-
+.content  .v[data-class=v] .vwrap .vheader .vinput:focus {
+    border-bottom-color:  #1abc9c;;
+}
 #header .h1,#header h1,.content .h1,.content h1,body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased
