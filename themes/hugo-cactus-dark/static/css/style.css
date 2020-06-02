@@ -40,6 +40,20 @@ a {-webkit-tap-highlight-color:transparent;}
 *,.border-box,:after,:before {
     box-sizing: border-box
 }
+.content .vpower{ display: none;}
+.content .vat{ color: #1abc9c;}
+.content .v[data-class=v] .vcards .vcard .vh .vmeta .vat{
+    color: #1abc9c;
+}
+
+.content .v[data-class=v] .vbtn:active,.content  .v[data-class=v] .vbtn:hover {
+    color: #1abc9c;
+    border-color: #1abc9c;
+}
+
+.content .v[data-class=v] .vcards .vcard .vhead .vnick:hover,.content .v[data-class=v] a:hover{
+    color: #1abc9c;
+}
 
 #header .h1,#header h1,.content .h1,.content h1,body {
     -moz-osx-font-smoothing: grayscale;
@@ -1242,7 +1256,7 @@ article .content .caption {
 }
 
 .blog-post-comments.v a:hover {
-    color: #1abc9c
+    color: #1abc9c !important
 }
 
 .blog-post-comments.v * {
