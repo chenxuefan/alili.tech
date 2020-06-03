@@ -1,4 +1,5 @@
 const gulp = require("gulp");
+var gulpsync = require('gulp-sync')(gulp);
 const htmlmin = require('gulp-htmlmin');
 const fs = require('fs');
 const fse = require('fs-extra')
@@ -28,10 +29,9 @@ gulp.task('minify', () => {
        }))
       .pipe(gulp.dest('public'));
   });
-// gulp.task('build',function(done){
-//     shell.task('hugo --buildFuture');
-//     done()
-// });
+gulp.task('build',function(done){
+    return gulp.src('*.js', { read: false }).pipe(shell(['hugo --buildFuture']))
+});
 
 gulp.task('baiduSeo', () => {
     // return gulp.pipe()
@@ -47,7 +47,7 @@ gulp.task('baiduSeo', () => {
 
 
 gulp.task('getTodayData', () => {
-    axios.get('https://rest.shanbay.com/api/v2/quote/quotes/today/')
+  return  axios.get('https://rest.shanbay.com/api/v2/quote/quotes/today/')
     .then(function (response) {
         fse.writeJsonSync('./static/data/today.json',response.data)
         console.log('今日骚话:',response.data.data.translation);
@@ -117,13 +117,14 @@ gulp.task('generate-service-worker', () => {
   });
 
 
-gulp.task("default",[
-    // 'build',
-    'baiduSeo',
+
+gulp.task("default",gulpsync.sync([
     'getTodayData',
+    'build',
+    'baiduSeo',
     "generate-service-worker",
     'minify',
-])
+]))
 
 
 
