@@ -30,11 +30,10 @@ gulp.task('minify', () => {
       .pipe(gulp.dest('public'));
   });
 gulp.task('build',function(done){
-    return gulp.src('*.js', { read: false }).pipe(shell(['hugo --buildFuture']))
+    return gulp.src('./').pipe(shell(['hugo --buildFuture']))
 });
 
 gulp.task('baiduSeo', () => {
-    // return gulp.pipe()
     fs.readFile(__dirname + '/public/sitemap.xml', function(err, data) {
         parser.parseString(data, function (err, result) {
             urlSubmit(result.urlset.url)
