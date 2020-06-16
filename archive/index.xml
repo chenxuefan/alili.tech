@@ -6,10 +6,29 @@
     <description>Recent content in Archives on Hello Alili</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 29 Dec 2019 21:29:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2020 22:17:36 +0000</lastBuildDate>
     
 	<atom:link href="https://alili.tech/archive/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>榨干Taro - 我们为什么选择Taro</title>
+      <link>https://alili.tech/archive/bjg2zsidz0a/</link>
+      <pubDate>Tue, 16 Jun 2020 22:17:36 +0000</pubDate>
+      
+      <guid>https://alili.tech/archive/bjg2zsidz0a/</guid>
+      <description>新时代 跨端框架的出现,前端的浏览器兼容过渡到了各端兼容的新时代
+为什么选择Taro 对于跨端技术而言,目前相对完善且符合公司业务的技术框架可以选择 1. Taro 2. uni-app
+一个类React, 一个类Vue.
+在框架层面,两种技术框架提供着非常接近的多端兼容方案. 最大的不同是React 与 Vue的区别.当然,uni-app 提供了小程序容器方案. taro这边目前还没有.
+ 就目前对Taro来看,直接实现Taro to uni小程序理论上是可以实现的.在Taro next版本中,已经支持对vue语法, 那这样后续是否会出现多端框架to多端框架的局面呢?
+ 会到问题本身,为什么我们选择Taro呢, 1. 团队组建之初使用React技术栈 2. 我们在RN端有了一定的探索 3. Taro支持快应用
+就历史包袱来看,选择Taro过渡成本是相对较小的.
+目标  一处代码,多端运行. 减少人力成本 减少维护成本 多端快速上线  处境 目前使用taro开发单端,基本上没有太大的问题.目前遇到的问题,都有办法可以解决的.
+唯一占用开发工作量的是,如何处理代码在多端中的兼容问题. 所以处理兼容问题的方法与技巧还有多端开发的意识就尤为重要了.
+## 适配最佳路径 经过各种实践,我们认为一下开发的兼容路径是相对简单的. 在适配的过程中,主要还是样式的问题比较多.如果反向适配,会极其痛苦, 因为你之前写的任意一行代码,都可能是后面的bug.
+RN &amp;ndash;&amp;gt; 快应用 &amp;ndash;&amp;gt; 小程序 &amp;ndash;&amp;gt; 其他小程序 &amp;ndash;&amp;gt; H5</description>
+    </item>
     
     <item>
       <title>2019 年终有感</title>
