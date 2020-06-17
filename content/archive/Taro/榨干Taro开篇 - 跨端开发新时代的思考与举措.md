@@ -1,5 +1,5 @@
 ---
-title: 榨干Taro开篇 - 跨端开发新时代的思考与举措
+title: '[榨干Taro] 开篇 - 跨端开发新时代的思考与举措'
 tags: [Taro,跨端开发,前端架构]
 slug: bjg2zsidz0a
 keywords: Taro,多端同构,前端架构,多端开发技巧,跨端开发
