@@ -84,8 +84,11 @@ https://www.npmjs.com/package/npm-force-resolutions
 ## 加速你的npm安装速度
 除了大家都知道的npm换源之外,npm依赖的执行文件下载也会拖慢你的依赖安装速度.
 
-以下是我们团队使用的npmrc配置,对于一些npm依赖的执行文件,
+以下是我们团队使用的`.npmrc`配置,对于一些npm依赖的执行文件,
 可以使用该配置加速你的npm构建速度.
+
+> .npmrc文件的位置在你的home目录下,你也可以在项目根目录创建该文件.
+
 ```
 chromedriver-cdnurl=https://npm.taobao.org/mirrors/chromedriver
 couchbase-binary-host-mirror=https://npm.taobao.org/mirrors/couchbase/v{version}
