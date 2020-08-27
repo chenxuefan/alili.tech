@@ -1,5 +1,5 @@
 ---
-title: 'Taro跨端开发之多业务模块管理 React Native篇 上'
+title: 'Taro跨端开发之多业务模块管理 React Native篇(上)'
 tags: [Taro,跨端开发,前端架构]
 slug: w650d9ok34i
 keywords: Taro,多端同构,前端架构,多端开发技巧,跨端开发
