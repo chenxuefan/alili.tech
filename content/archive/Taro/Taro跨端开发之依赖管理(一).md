@@ -81,6 +81,43 @@ date: 2020-08-27 22:17:36
 https://www.npmjs.com/package/npm-force-resolutions
 
 
+## 加速你的npm安装速度
+除了大家都知道的npm换源之外,npm依赖的执行文件下载也会拖慢你的依赖安装速度.
+
+以下是我们团队使用的npmrc配置,对于一些npm依赖的执行文件,
+可以使用该配置加速你的npm构建速度.
+```
+chromedriver-cdnurl=https://npm.taobao.org/mirrors/chromedriver
+couchbase-binary-host-mirror=https://npm.taobao.org/mirrors/couchbase/v{version}
+debug-binary-host-mirror=https://npm.taobao.org/mirrors/node-inspector
+electron-mirror=https://npm.taobao.org/mirrors/electron/
+flow-bin-binary-host-mirror=https://npm.taobao.org/mirrors/flow/v
+fse-binary-host-mirror=https://npm.taobao.org/mirrors/fsevents
+fuse-bindings-binary-host-mirror=https://npm.taobao.org/mirrors/fuse-bindings/v{version}
+git4win-mirror=https://npm.taobao.org/mirrors/git-for-windows
+gl-binary-host-mirror=https://npm.taobao.org/mirrors/gl/v{version}
+grpc-node-binary-host-mirror=https://npm.taobao.org/mirrors
+hackrf-binary-host-mirror=https://npm.taobao.org/mirrors/hackrf/v{version}
+leveldown-binary-host-mirror=https://npm.taobao.org/mirrors/leveldown/v{version}
+leveldown-hyper-binary-host-mirror=https://npm.taobao.org/mirrors/leveldown-hyper/v{version}
+mknod-binary-host-mirror=https://npm.taobao.org/mirrors/mknod/v{version}
+node-sqlite3-binary-host-mirror=https://npm.taobao.org/mirrors
+node-tk5-binary-host-mirror=https://npm.taobao.org/mirrors/node-tk5/v{version}
+nodegit-binary-host-mirror=https://npm.taobao.org/mirrors/nodegit/v{version}/
+operadriver-cdnurl=https://npm.taobao.org/mirrors/operadriver
+phantomjs-cdnurl=https://npm.taobao.org/mirrors/phantomjs
+profiler-binary-host-mirror=https://npm.taobao.org/mirrors/node-inspector/
+puppeteer-download-host=https://npm.taobao.org/mirrors
+python-mirror=https://npm.taobao.org/mirrors/python
+rabin-binary-host-mirror=https://npm.taobao.org/mirrors/rabin/v{version}
+sass-binary-site=https://npm.taobao.org/mirrors/node-sass
+sodium-prebuilt-binary-host-mirror=https://npm.taobao.org/mirrors/sodium-prebuilt/v{version}
+sqlite3-binary-site=https://npm.taobao.org/mirrors/sqlite3
+utf-8-validate-binary-host-mirror=https://npm.taobao.org/mirrors/utf-8-validate/v{version}
+utp-native-binary-host-mirror=https://npm.taobao.org/mirrors/utp-native/v{version}
+zmq-prebuilt-binary-host-mirror=https://npm.taobao.org/mirrors/zmq-prebuilt/v{version}
+sentrycli_cdnurl=https://npm.taobao.org/mirrors/sentry-cli
+```
 
 
 ## 附录 : NPM中的版本号规则
