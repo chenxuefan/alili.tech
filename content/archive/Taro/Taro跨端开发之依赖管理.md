@@ -1,9 +1,9 @@
 ---
-title: 'Taro跨端开发之依赖管理 (一)'
+title: 'Taro跨端开发之依赖管理'
 tags: [Taro,跨端开发,前端架构]
 slug: h8gasmt9u5c
 keywords: Taro,多端同构,前端架构,多端开发技巧,跨端开发
-date: 2020-08-27 22:17:36
+date: 2020-08-20 22:17:36
 ---
 
 
