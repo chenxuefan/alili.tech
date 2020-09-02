@@ -57,6 +57,7 @@ hidden : true
  - [梦魇小栈](https://blog.ihoey.com)
  - [小丁的个人博客](https://tding.top)
  - [知与南](https://inner.ink)
+ - [人人都爱小雀斑's blog](https://billie52707.cn)
 
 
 
