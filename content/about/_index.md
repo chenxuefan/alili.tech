@@ -79,7 +79,7 @@ hidden : true
 # 友情链接
 #### [自行添加](https://github.com/Fantasy9527/alili.tech/blob/master/content/about/_index.md)
 
-
+ - [人人都爱小雀斑‘s blog](https://billie52707.cn) 
  - [颜海镜](https://yanhaijing.com/)
  - [phith0n](https://www.leavesongs.com/)
  - [Web前端之家](http://www.jiangweishan.com/)
